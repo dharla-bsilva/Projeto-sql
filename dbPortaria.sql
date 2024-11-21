@@ -78,6 +78,7 @@ desc tbVendas;
 insert into tbFuncionarios(nome,rg,cpf,sexo,salario) values('Dharla Silva','52.741.528-7','425.785.985-77','F',2500.45);
 insert into tbFuncionarios(nome,rg,cpf,sexo,salario) values('Miguel Barros','42.147.825-9','427.987.888-71','M',2500.45);
 insert into tbFuncionarios(nome,rg,cpf,sexo,salario) values('Gabryell Zillig','62.554.897-1','435.885.985-62','M',3100.45);
+
 -- Tabela Clientes
 
 insert into tbClientes(codCli,nome,email,telCel) values(1,'Joana Antunes','joana.antunes@hotmail.com','95248-7597');
@@ -118,3 +119,12 @@ select * from tbFornecedores;
 select * from tbUsuarios;
 select * from tbProdutos;
 select * from tbVendas;
+
+-- inner join
+
+select func.nome as 'Nome do Funcionario' 
+,usu.nome as 'Nome do Usuario'
+from tbUsuarios as usu
+inner join tbFuncionarios as func
+on usu.codFunc = func.codFunc
+where  func.nome like '%o%';
